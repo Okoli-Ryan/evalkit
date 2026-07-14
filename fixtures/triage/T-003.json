@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-003"
+  },
+  "response": {
+    "category": "technical",
+    "priority": "urgent",
+    "needs_human": true,
+    "suggested_reply": "I'm escalating this as an urgent outage right now. Our engineering team is investigating the 503 errors and I'll keep you updated with progress."
+  },
+  "usage": {
+    "input_tokens": 222,
+    "output_tokens": 92
+  }
+}

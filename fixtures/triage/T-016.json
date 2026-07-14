@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-016"
+  },
+  "response": {
+    "category": "account",
+    "priority": "high",
+    "needs_human": true,
+    "suggested_reply": "Thanks for your request. GDPR deletions are handled by our privacy team to verify the request properly — I've forwarded this to them and they'll follow up with next steps."
+  },
+  "usage": {
+    "input_tokens": 235,
+    "output_tokens": 105
+  }
+}

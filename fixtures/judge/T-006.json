@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-006"
+  },
+  "response": {
+    "score": 4,
+    "rationale": "Good security advice; tone is calm and appropriate."
+  },
+  "usage": {
+    "input_tokens": 185,
+    "output_tokens": 45
+  }
+}

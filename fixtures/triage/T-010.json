@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-010"
+  },
+  "response": {
+    "category": "other",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "Thanks for the sharp eyes — I've passed the 'montly' typo on the pricing page to our web team to fix."
+  },
+  "usage": {
+    "input_tokens": 229,
+    "output_tokens": 99
+  }
+}

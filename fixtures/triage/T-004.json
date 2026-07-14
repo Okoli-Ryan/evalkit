@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-004"
+  },
+  "response": {
+    "category": "feature_request",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "Thanks for the kind words! A dark theme is a popular request — I've logged your vote and shared it with our product team."
+  },
+  "usage": {
+    "input_tokens": 223,
+    "output_tokens": 93
+  }
+}

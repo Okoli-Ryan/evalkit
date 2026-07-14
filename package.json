@@ -1,0 +1,39 @@
+{
+  "name": "evalkit",
+  "version": "0.1.0",
+  "description": "A minimal, runnable LLM eval harness — assertion, golden-dataset, and LLM-as-judge evals for a support-ticket triage feature, with fixture record/replay so it runs in CI without an API key.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "eval": "tsx src/cli.ts",
+    "report": "tsx src/report/server.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "llm",
+    "evals",
+    "evaluation",
+    "llm-as-judge",
+    "anthropic",
+    "claude",
+    "testing"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.111.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
+  }
+}

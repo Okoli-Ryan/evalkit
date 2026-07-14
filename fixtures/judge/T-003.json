@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-003"
+  },
+  "response": {
+    "score": 5,
+    "rationale": "Appropriately urgent, reassuring, and commits to updates without overpromising a fix time."
+  },
+  "usage": {
+    "input_tokens": 182,
+    "output_tokens": 42
+  }
+}

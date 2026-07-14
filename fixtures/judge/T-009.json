@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-009"
+  },
+  "response": {
+    "score": 2,
+    "rationale": "Invents a specific refund amount, timeline, and a completed cancellation none of which are supported — exactly the kind of overpromise to avoid."
+  },
+  "usage": {
+    "input_tokens": 188,
+    "output_tokens": 48
+  }
+}

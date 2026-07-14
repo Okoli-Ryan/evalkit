@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-017"
+  },
+  "response": {
+    "category": "technical",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "A network timeout on the charts usually points to a slow request or an ad-blocker. Could you try a hard refresh and let me know if the console still shows the timeout?"
+  },
+  "usage": {
+    "input_tokens": 236,
+    "output_tokens": 106
+  }
+}

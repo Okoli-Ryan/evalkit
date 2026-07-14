@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>evalkit — LLM eval dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">◇</span>
+        <div>
+          <h1>evalkit</h1>
+          <p class="sub">Support-ticket triage · eval run</p>
+        </div>
+      </div>
+      <div class="meta" id="meta"></div>
+    </header>
+
+    <main class="wrap">
+      <section id="tiles" class="tiles" aria-label="Headline metrics"></section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Cases</h2>
+          <div class="legend">
+            <span><i class="dot pass"></i> pass</span>
+            <span><i class="dot fail"></i> fail</span>
+          </div>
+        </div>
+        <table class="cases" id="cases">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Subject</th>
+              <th>Assertions</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Human</th>
+              <th>Judge</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="drawer" id="drawer" hidden>
+      <div class="drawer-body" id="drawer-body"></div>
+    </div>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

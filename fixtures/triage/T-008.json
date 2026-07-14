@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-008"
+  },
+  "response": {
+    "category": "technical",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "Sorry for the 429s. Our documented limits should match production — could you share a sample request ID so I can check what's tripping the limit?"
+  },
+  "usage": {
+    "input_tokens": 227,
+    "output_tokens": 97
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-011"
+  },
+  "response": {
+    "category": "technical",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "The current upload limit is 5MB, which is why larger files fail. I can raise it for your workspace — how large do the files you need to upload tend to be?"
+  },
+  "usage": {
+    "input_tokens": 230,
+    "output_tokens": 100
+  }
+}

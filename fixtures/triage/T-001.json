@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-001"
+  },
+  "response": {
+    "category": "billing",
+    "priority": "high",
+    "needs_human": true,
+    "suggested_reply": "I'm sorry about the duplicate charge. I've flagged your account for a refund of the extra $49 and a billing specialist will confirm the reversal shortly."
+  },
+  "usage": {
+    "input_tokens": 220,
+    "output_tokens": 90
+  }
+}

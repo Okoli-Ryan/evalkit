@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-008"
+  },
+  "response": {
+    "score": 4,
+    "rationale": "Reasonable diagnostic ask, appropriately concrete."
+  },
+  "usage": {
+    "input_tokens": 187,
+    "output_tokens": 47
+  }
+}

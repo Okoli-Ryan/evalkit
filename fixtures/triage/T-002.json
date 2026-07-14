@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-002"
+  },
+  "response": {
+    "category": "technical",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "You can export your records from Settings → Data → Export, which downloads everything as a CSV. Let me know if you hit any trouble."
+  },
+  "usage": {
+    "input_tokens": 221,
+    "output_tokens": 91
+  }
+}

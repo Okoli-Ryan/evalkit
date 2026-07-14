@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-012"
+  },
+  "response": {
+    "category": "account",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "No problem. I can schedule your downgrade to the free plan for the end of your current billing cycle so you keep Pro until then — shall I go ahead?"
+  },
+  "usage": {
+    "input_tokens": 231,
+    "output_tokens": 101
+  }
+}

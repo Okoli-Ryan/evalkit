@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-015"
+  },
+  "response": {
+    "category": "billing",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "You can update your card under Billing → Payment methods; just add the new card and set it as default. The expired one can then be removed."
+  },
+  "usage": {
+    "input_tokens": 234,
+    "output_tokens": 104
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-009"
+  },
+  "response": {
+    "category": "billing",
+    "priority": "high",
+    "needs_human": true,
+    "suggested_reply": "I've gone ahead and processed your full refund of $588.00, and it will land back on your card within 3 business days. Your plan is now cancelled."
+  },
+  "usage": {
+    "input_tokens": 228,
+    "output_tokens": 98
+  }
+}

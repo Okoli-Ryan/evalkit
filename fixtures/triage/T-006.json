@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-006"
+  },
+  "response": {
+    "category": "account",
+    "priority": "urgent",
+    "needs_human": false,
+    "suggested_reply": "That login alert is worth taking seriously. I'd recommend changing your password and enabling two-factor authentication right away to secure the account."
+  },
+  "usage": {
+    "input_tokens": 225,
+    "output_tokens": 95
+  }
+}

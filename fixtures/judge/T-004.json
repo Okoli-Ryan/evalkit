@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-004"
+  },
+  "response": {
+    "score": 4,
+    "rationale": "Warm and correct, though slightly generic."
+  },
+  "usage": {
+    "input_tokens": 183,
+    "output_tokens": 43
+  }
+}

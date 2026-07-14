@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-018"
+  },
+  "response": {
+    "category": "other",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "That's wonderful to hear — thank you for taking the time to share it! I'll pass your thanks along to the team that helped you."
+  },
+  "usage": {
+    "input_tokens": 237,
+    "output_tokens": 107
+  }
+}

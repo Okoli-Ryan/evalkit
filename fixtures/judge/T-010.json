@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-010"
+  },
+  "response": {
+    "score": 4,
+    "rationale": "Friendly acknowledgement with a clear next step."
+  },
+  "usage": {
+    "input_tokens": 189,
+    "output_tokens": 49
+  }
+}

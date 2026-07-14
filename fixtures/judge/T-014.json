@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-014"
+  },
+  "response": {
+    "score": 3,
+    "rationale": "Content is fine but far too long for a first reply."
+  },
+  "usage": {
+    "input_tokens": 193,
+    "output_tokens": 53
+  }
+}

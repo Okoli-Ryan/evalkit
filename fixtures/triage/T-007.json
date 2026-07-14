@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-007"
+  },
+  "response": {
+    "category": "billing",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "Happy to help. You can add your VAT number under Billing → Company details, and future invoices will include it automatically."
+  },
+  "usage": {
+    "input_tokens": 226,
+    "output_tokens": 96
+  }
+}

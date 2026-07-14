@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-014"
+  },
+  "response": {
+    "category": "feature_request",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "Thank you so much for reaching out about a Slack integration, this is genuinely one of the most frequently requested features we hear about from teams like yours, and I completely understand why it would be valuable to have notifications delivered straight into your team channel where everyone is already working every single day. While I cannot commit to a specific release date at this exact moment in time, I want to assure you in the strongest possible terms that this is something our product and engineering teams are actively discussing and evaluating on the roadmap, and I have personally logged your enthusiastic request and attached your account so that the moment we have any concrete news whatsoever about availability we will be able to reach out to you directly and personally without any delay at all."
+  },
+  "usage": {
+    "input_tokens": 233,
+    "output_tokens": 103
+  }
+}

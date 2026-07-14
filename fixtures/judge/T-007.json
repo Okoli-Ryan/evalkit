@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-007"
+  },
+  "response": {
+    "score": 5,
+    "rationale": "Clear, actionable, and scoped to what the customer asked."
+  },
+  "usage": {
+    "input_tokens": 186,
+    "output_tokens": 46
+  }
+}

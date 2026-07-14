@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-013"
+  },
+  "response": {
+    "category": "other",
+    "priority": "high",
+    "needs_human": true,
+    "suggested_reply": "This sounds like a possible data-integrity issue from the sync, and I don't want to guess — I'm looping in an engineer to inspect the duplicated rows."
+  },
+  "usage": {
+    "input_tokens": 232,
+    "output_tokens": 102
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-015"
+  },
+  "response": {
+    "score": 5,
+    "rationale": "Precise, self-serve instructions."
+  },
+  "usage": {
+    "input_tokens": 194,
+    "output_tokens": 54
+  }
+}

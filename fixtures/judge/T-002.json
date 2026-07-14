@@ -1,0 +1,15 @@
+{
+  "request": {
+    "model": "claude-sonnet-5",
+    "system": "judge",
+    "user": "T-002"
+  },
+  "response": {
+    "score": 5,
+    "rationale": "Directly answers the how-to question with a concrete path."
+  },
+  "usage": {
+    "input_tokens": 181,
+    "output_tokens": 41
+  }
+}

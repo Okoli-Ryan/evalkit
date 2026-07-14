@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-07-13T09:12:00.000Z",
+  "model": "claude-haiku-4-5",
+  "judgeModel": "claude-sonnet-5",
+  "cases": [],
+  "metrics": [
+    {
+      "name": "Assertions pass",
+      "passed": 18,
+      "total": 18,
+      "rate": 1
+    },
+    {
+      "name": "Category accuracy",
+      "passed": 16,
+      "total": 18,
+      "rate": 0.8888888888888888
+    },
+    {
+      "name": "Priority accuracy",
+      "passed": 17,
+      "total": 18,
+      "rate": 0.9444444444444444
+    },
+    {
+      "name": "needs_human accuracy",
+      "passed": 18,
+      "total": 18,
+      "rate": 1
+    },
+    {
+      "name": "Judge pass (reply quality)",
+      "passed": 15,
+      "total": 18,
+      "rate": 0.8333333333333334
+    }
+  ]
+}

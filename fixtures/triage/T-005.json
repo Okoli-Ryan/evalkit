@@ -1,0 +1,17 @@
+{
+  "request": {
+    "model": "claude-haiku-4-5",
+    "system": "triage",
+    "user": "T-005"
+  },
+  "response": {
+    "category": "account",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "Sorry the reset email isn't arriving. Please check spam, and if it's still missing I can trigger another reset — what email is on the account?"
+  },
+  "usage": {
+    "input_tokens": 224,
+    "output_tokens": 94
+  }
+}
