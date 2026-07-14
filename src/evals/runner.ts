@@ -1,5 +1,5 @@
 import { ModelClient } from '../llm/client.js';
-import { triageTicket } from '../app/triage.js';
+import { triageTicket, TRIAGE_MODEL } from '../app/triage.js';
 import type { Ticket } from '../app/types.js';
 import { runAssertions } from './assertions.js';
 import { scoreAccuracy } from './accuracy.js';
@@ -18,7 +18,12 @@ export async function runEval(tickets: Ticket[]): Promise<EvalRun> {
     // Only judge the reply if it structurally passed — no point scoring garbage.
     const judge = assertions.every((c) => c.passed)
       ? await judgeReply(client, ticket, triage)
-      : { score: 0, passed: false, rationale: 'skipped — failed assertions' };
+      : {
+          score: 0,
+          passed: false,
+          skipped: true,
+          rationale: 'skipped — failed assertions',
+        };
 
     cases.push({
       id: ticket.id,
@@ -33,7 +38,7 @@ export async function runEval(tickets: Ticket[]): Promise<EvalRun> {
 
   return {
     generatedAt: new Date().toISOString(),
-    model: 'claude-haiku-4-5',
+    model: TRIAGE_MODEL,
     judgeModel: JUDGE_MODEL,
     cases,
     metrics: summarize(cases),
@@ -42,13 +47,21 @@ export async function runEval(tickets: Ticket[]): Promise<EvalRun> {
 
 /** Roll per-case checks up into headline pass rates, one per eval dimension. */
 function summarize(cases: CaseResult[]): MetricSummary[] {
-  const metric = (name: string, predicate: (c: CaseResult) => boolean): MetricSummary => {
-    const passed = cases.filter(predicate).length;
+  const metric = (
+    name: string,
+    predicate: (c: CaseResult) => boolean,
+    // Which cases count toward the denominator (default: all of them). The judge
+    // metric uses this to exclude cases that were never judged (Layer 1 gated
+    // them out), so "not judged" isn't conflated with "judged and failed".
+    countsFor: (c: CaseResult) => boolean = () => true,
+  ): MetricSummary => {
+    const counted = cases.filter(countsFor);
+    const passed = counted.filter(predicate).length;
     return {
       name,
       passed,
-      total: cases.length,
-      rate: cases.length ? passed / cases.length : 0,
+      total: counted.length,
+      rate: counted.length ? passed / counted.length : 0,
     };
   };
 
@@ -63,7 +76,11 @@ function summarize(cases: CaseResult[]): MetricSummary[] {
     metric('needs_human accuracy', (c) =>
       checkPassed(c, 'accuracy', 'needs_human matches gold'),
     ),
-    metric('Judge pass (reply quality)', (c) => c.judge.passed),
+    metric(
+      'Judge pass (reply quality)',
+      (c) => c.judge.passed,
+      (c) => !c.judge.skipped,
+    ),
   ];
 }
 

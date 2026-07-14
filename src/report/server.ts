@@ -40,7 +40,9 @@ const server = createServer(async (req, res) => {
 function safeSuffix(url: string, prefix: string): string {
   const suffix = decodeURIComponent(url.slice(prefix.length));
   const cleaned = normalize(suffix).replace(/^(\.\.[/\\])+/, '');
-  if (cleaned.includes('..')) throw new Error('traversal');
+  // Reject a literal ".." path *segment* (blocks traversal) without tripping on
+  // legitimate names that merely contain ".." such as "foo..bar.json".
+  if (cleaned.split(/[/\\]/).includes('..')) throw new Error('traversal');
   return cleaned;
 }
 

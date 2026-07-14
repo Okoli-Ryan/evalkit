@@ -12,6 +12,8 @@ export interface JudgeVerdict {
   score: number; // 1-5
   passed: boolean; // score >= threshold
   rationale: string;
+  /** True when the reply was never judged because it failed Layer 1 first. */
+  skipped?: boolean;
 }
 
 /** Everything the harness learned about a single ticket. */

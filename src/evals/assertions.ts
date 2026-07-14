@@ -9,6 +9,11 @@ import type { Check } from './types.js';
  * If these fail, nothing downstream is worth measuring.
  */
 export function runAssertions(triage: Triage): Check[] {
+  // Coerce to a safe string up front: a malformed fixture (or a future schema
+  // change) could hand us a non-string reply, and Layer 1 must *report* that as
+  // a failed check, not throw while building the list.
+  const reply = typeof triage.suggested_reply === 'string' ? triage.suggested_reply : '';
+
   return [
     {
       name: 'category in enum',
@@ -26,14 +31,12 @@ export function runAssertions(triage: Triage): Check[] {
     },
     {
       name: 'reply is non-empty',
-      passed:
-        typeof triage.suggested_reply === 'string' &&
-        triage.suggested_reply.trim().length > 0,
+      passed: reply.trim().length > 0,
     },
     {
       name: 'reply within length budget',
-      passed: triage.suggested_reply.length <= 600,
-      detail: `${triage.suggested_reply.length} chars`,
+      passed: reply.length <= 600,
+      detail: `${reply.length} chars`,
     },
   ];
 }

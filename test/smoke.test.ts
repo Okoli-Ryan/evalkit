@@ -36,8 +36,16 @@ test('full eval run (replay) produces one result per ticket and all metrics', as
   assert.equal(run.metrics.length, 5);
   for (const m of run.metrics) {
     assert.ok(m.rate >= 0 && m.rate <= 1, `${m.name} rate out of range`);
-    assert.equal(m.total, tickets.length);
+    // Denominators are bounded by the dataset; the judge metric excludes cases
+    // that were gated out by Layer 1, so its total may be smaller.
+    assert.ok(m.total > 0 && m.total <= tickets.length, `${m.name} total out of range`);
   }
+
+  // A reply that failed assertions is never judged — it must not be counted as
+  // a judged case (skipped ≠ judged-and-failed).
+  const skipped = run.cases.filter((c) => c.judge.skipped);
+  const judgeMetric = run.metrics.find((m) => m.name.startsWith('Judge'))!;
+  assert.equal(judgeMetric.total, tickets.length - skipped.length);
 
   // The dataset ships with known defects — the suite must surface them, not
   // silently pass everything.

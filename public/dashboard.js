@@ -22,9 +22,9 @@ function barColor(rate) {
 function renderMeta(run) {
   const when = new Date(run.generatedAt).toLocaleString();
   $('#meta').innerHTML = `
-    <div>under test · ${run.model}</div>
-    <div>judge · ${run.judgeModel}</div>
-    <div>${when}</div>`;
+    <div>under test · ${escapeHtml(run.model)}</div>
+    <div>judge · ${escapeHtml(run.judgeModel)}</div>
+    <div>${escapeHtml(when)}</div>`;
 }
 
 function renderTiles(run, baseline) {
@@ -34,7 +34,7 @@ function renderTiles(run, baseline) {
       const delta = base ? m.rate - base.rate : null;
       return `
       <div class="tile">
-        <div class="name">${m.name}</div>
+        <div class="name">${escapeHtml(m.name)}</div>
         <div class="value">${pct(m.rate)}
           <span class="count">${m.passed}/${m.total}</span>
         </div>
@@ -69,8 +69,8 @@ function renderRows(run) {
       const assertionsOk = c.assertions.every((a) => a.passed);
       const hasFail = !assertionsOk || !c.judge.passed;
       return `
-      <tr data-id="${c.id}" class="${hasFail ? 'has-fail' : ''}">
-        <td class="id">${c.id}</td>
+      <tr data-id="${escapeAttr(c.id)}" class="${hasFail ? 'has-fail' : ''}">
+        <td class="id">${escapeHtml(c.id)}</td>
         <td class="subject" title="${escapeAttr(c.subject)}">${escapeHtml(c.subject)}</td>
         <td>${mark(assertionsOk)}</td>
         <td>${mark(accCheck(c, 'category matches gold'))}</td>
@@ -105,14 +105,14 @@ function openDrawer(id) {
 
   $('#drawer-body').innerHTML = `
     <button class="close" aria-label="Close">×</button>
-    <div class="id">${c.id}</div>
+    <div class="id">${escapeHtml(c.id)}</div>
     <h3>${escapeHtml(c.subject)}</h3>
 
     <div class="block">
       <div class="label">Model decision</div>
-      <div class="reply">category: ${c.triage.category}   ·   priority: ${
-        c.triage.priority
-      }   ·   needs_human: ${c.triage.needs_human}</div>
+      <div class="reply">category: ${escapeHtml(c.triage.category)}   ·   priority: ${escapeHtml(
+        c.triage.priority,
+      )}   ·   needs_human: ${escapeHtml(String(c.triage.needs_human))}</div>
     </div>
 
     <div class="block">

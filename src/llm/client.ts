@@ -46,6 +46,9 @@ export class ModelClient {
   private readonly anthropic: Anthropic | null;
 
   constructor(mode: Mode = (process.env.EVALKIT_MODE as Mode) ?? 'replay') {
+    if (mode !== 'replay' && mode !== 'record') {
+      throw new Error(`Unknown EVALKIT_MODE "${mode}" — expected "replay" or "record".`);
+    }
     this.mode = mode;
     this.anthropic = mode === 'record' ? new Anthropic() : null;
   }
@@ -69,20 +72,38 @@ export class ModelClient {
     }
 
     // record mode — call the real API, then persist the result as a fixture.
-    const anthropic = this.anthropic!;
-    const message = await anthropic.messages.create({
+    if (!this.anthropic) throw new Error('record mode requires an Anthropic client');
+    const message = await this.anthropic.messages.create({
       model: req.model,
-      max_tokens: req.maxTokens ?? 1024,
+      max_tokens: req.maxTokens ?? 2048,
       system: req.system,
       output_config: { format: { type: 'json_schema', schema: req.schema } },
       messages: [{ role: 'user', content: req.user }],
     });
 
+    if (message.stop_reason === 'max_tokens') {
+      throw new Error(
+        `Response for "${req.fixtureKey}" was truncated (stop_reason=max_tokens) — raise maxTokens.`,
+      );
+    }
+    if (message.stop_reason === 'refusal') {
+      throw new Error(
+        `Model refused the request for "${req.fixtureKey}" (stop_reason=refusal).`,
+      );
+    }
+
     const text = message.content.find((b) => b.type === 'text');
     if (!text || text.type !== 'text') {
       throw new Error(`No text block in response for "${req.fixtureKey}"`);
     }
-    const value = JSON.parse(text.text) as T;
+    let value: T;
+    try {
+      value = JSON.parse(text.text) as T;
+    } catch (err) {
+      throw new Error(
+        `Response for "${req.fixtureKey}" was not valid JSON: ${(err as Error).message}`,
+      );
+    }
     const usage = {
       input_tokens: message.usage.input_tokens,
       output_tokens: message.usage.output_tokens,
