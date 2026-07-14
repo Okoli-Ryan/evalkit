@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-014"
+    "system": "(judge rubric)",
+    "user": "score reply for T-014"
   },
   "response": {
-    "score": 3,
-    "rationale": "Content is fine but far too long for a first reply."
+    "score": 2,
+    "rationale": "Tone-deaf for an angry churn-risk customer: deflects to a help article instead of offering a human. Reads dismissive."
   },
   "usage": {
-    "input_tokens": 193,
-    "output_tokens": 53
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-009"
+    "system": "(judge rubric)",
+    "user": "score reply for T-009"
   },
   "response": {
-    "score": 2,
-    "rationale": "Invents a specific refund amount, timeline, and a completed cancellation none of which are supported — exactly the kind of overpromise to avoid."
+    "score": 4,
+    "rationale": "Good reply, requests the needed detail; category label aside."
   },
   "usage": {
-    "input_tokens": 188,
-    "output_tokens": 48
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

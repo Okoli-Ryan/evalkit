@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-007"
+    "system": "(judge rubric)",
+    "user": "score reply for T-007"
   },
   "response": {
-    "score": 5,
-    "rationale": "Clear, actionable, and scoped to what the customer asked."
+    "score": 2,
+    "rationale": "Invents a refund amount, a completed action, and a reference number that are not supported by the ticket — a hallucinated promise."
   },
   "usage": {
-    "input_tokens": 186,
-    "output_tokens": 46
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-14T10:21:39.989Z",
+  "generatedAt": "2026-07-14T21:40:06.013Z",
   "model": "claude-haiku-4-5",
   "judgeModel": "claude-sonnet-5",
   "cases": [
     {
       "id": "T-001",
-      "subject": "Charged twice this month",
+      "subject": "Double charged for October",
       "triage": {
         "category": "billing",
         "priority": "high",
         "needs_human": true,
-        "suggested_reply": "I'm sorry about the duplicate charge. I've flagged your account for a refund of the extra $49 and a billing specialist will confirm the reversal shortly."
+        "suggested_reply": "Thanks for flagging this — a duplicate charge is never fun. I've escalated your account to our billing team to investigate the second $49 charge and arrange a refund. You'll hear back within one business day."
       },
       "gold": {
         "category": "billing",
@@ -39,7 +39,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "153 chars"
+          "detail": "208 chars"
         }
       ],
       "accuracy": [
@@ -62,17 +62,17 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Acknowledges the issue, sets a clear next step, promises nothing it cannot keep."
+        "rationale": "Acknowledges the issue, sets a clear expectation, promises nothing it cannot verify."
       }
     },
     {
       "id": "T-002",
-      "subject": "How do I export my data to CSV?",
+      "subject": "How do I export my data?",
       "triage": {
         "category": "technical",
         "priority": "low",
         "needs_human": false,
-        "suggested_reply": "You can export your records from Settings → Data → Export, which downloads everything as a CSV. Let me know if you hit any trouble."
+        "suggested_reply": "You can export everything from Settings → Data → Export, which produces a CSV of all your records. Let me know if the button is missing and I can enable it for your plan."
       },
       "gold": {
         "category": "technical",
@@ -101,7 +101,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "131 chars"
+          "detail": "170 chars"
         }
       ],
       "accuracy": [
@@ -124,17 +124,79 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Directly answers the how-to question with a concrete path."
+        "rationale": "Directly answers the how-to and offers a next step."
       }
     },
     {
       "id": "T-003",
+      "subject": "Reset my password",
+      "triage": {
+        "category": "account",
+        "priority": "low",
+        "needs_human": false,
+        "suggested_reply": "Sorry for the hassle. Please check your spam folder for the reset email from no-reply@example.com. If it's still missing after 10 minutes, reply here and I'll trigger a manual reset link."
+      },
+      "gold": {
+        "category": "account",
+        "priority": "low",
+        "needs_human": false
+      },
+      "assertions": [
+        {
+          "name": "category in enum",
+          "passed": true,
+          "detail": "account"
+        },
+        {
+          "name": "priority in enum",
+          "passed": true,
+          "detail": "low"
+        },
+        {
+          "name": "needs_human is boolean",
+          "passed": true
+        },
+        {
+          "name": "reply is non-empty",
+          "passed": true
+        },
+        {
+          "name": "reply within length budget",
+          "passed": true,
+          "detail": "187 chars"
+        }
+      ],
+      "accuracy": [
+        {
+          "name": "category matches gold",
+          "passed": true,
+          "detail": "predicted account, gold account"
+        },
+        {
+          "name": "priority matches gold",
+          "passed": true,
+          "detail": "predicted low, gold low"
+        },
+        {
+          "name": "needs_human matches gold",
+          "passed": true,
+          "detail": "predicted false, gold false"
+        }
+      ],
+      "judge": {
+        "score": 4,
+        "passed": true,
+        "rationale": "Helpful and safe, though slightly generic."
+      }
+    },
+    {
+      "id": "T-004",
       "subject": "Site is completely down",
       "triage": {
         "category": "technical",
         "priority": "urgent",
         "needs_human": true,
-        "suggested_reply": "I'm escalating this as an urgent outage right now. Our engineering team is investigating the 503 errors and I'll keep you updated with progress."
+        "suggested_reply": "That sounds like an outage and I'm treating it as urgent. I've alerted our on-call engineers and created an incident. I'll post updates here as we learn more — thank you for your patience."
       },
       "gold": {
         "category": "technical",
@@ -163,7 +225,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "144 chars"
+          "detail": "188 chars"
         }
       ],
       "accuracy": [
@@ -186,17 +248,17 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Appropriately urgent, reassuring, and commits to updates without overpromising a fix time."
+        "rationale": "Correctly urgent tone, escalates, no false ETA."
       }
     },
     {
-      "id": "T-004",
-      "subject": "Can you add dark mode?",
+      "id": "T-005",
+      "subject": "Add dark mode please",
       "triage": {
         "category": "feature_request",
         "priority": "low",
         "needs_human": false,
-        "suggested_reply": "Thanks for the kind words! A dark theme is a popular request — I've logged your vote and shared it with our product team."
+        "suggested_reply": "Great suggestion — dark mode is a popular request. I've added your vote to the feature and will note it for the product team. I can't promise a date, but it's on the radar."
       },
       "gold": {
         "category": "feature_request",
@@ -225,7 +287,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "121 chars"
+          "detail": "172 chars"
         }
       ],
       "accuracy": [
@@ -246,148 +308,24 @@
         }
       ],
       "judge": {
-        "score": 4,
+        "score": 5,
         "passed": true,
-        "rationale": "Warm and correct, though slightly generic."
-      }
-    },
-    {
-      "id": "T-005",
-      "subject": "Reset my password",
-      "triage": {
-        "category": "account",
-        "priority": "medium",
-        "needs_human": false,
-        "suggested_reply": "Sorry the reset email isn't arriving. Please check spam, and if it's still missing I can trigger another reset — what email is on the account?"
-      },
-      "gold": {
-        "category": "account",
-        "priority": "medium",
-        "needs_human": false
-      },
-      "assertions": [
-        {
-          "name": "category in enum",
-          "passed": true,
-          "detail": "account"
-        },
-        {
-          "name": "priority in enum",
-          "passed": true,
-          "detail": "medium"
-        },
-        {
-          "name": "needs_human is boolean",
-          "passed": true
-        },
-        {
-          "name": "reply is non-empty",
-          "passed": true
-        },
-        {
-          "name": "reply within length budget",
-          "passed": true,
-          "detail": "142 chars"
-        }
-      ],
-      "accuracy": [
-        {
-          "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted account, gold account"
-        },
-        {
-          "name": "priority matches gold",
-          "passed": true,
-          "detail": "predicted medium, gold medium"
-        },
-        {
-          "name": "needs_human matches gold",
-          "passed": true,
-          "detail": "predicted false, gold false"
-        }
-      ],
-      "judge": {
-        "score": 4,
-        "passed": true,
-        "rationale": "Practical troubleshooting steps; asks for the detail it needs."
+        "rationale": "Warm, honest about uncertainty, routes to product."
       }
     },
     {
       "id": "T-006",
-      "subject": "Suspicious login from another country",
+      "subject": "Cancel my subscription",
       "triage": {
-        "category": "account",
-        "priority": "urgent",
-        "needs_human": false,
-        "suggested_reply": "That login alert is worth taking seriously. I'd recommend changing your password and enabling two-factor authentication right away to secure the account."
+        "category": "billing",
+        "priority": "medium",
+        "needs_human": true,
+        "suggested_reply": "I can help with that. Before I pass this to our billing team to process the cancellation, could you confirm the email on the account? You won't be charged again once it's cancelled."
       },
       "gold": {
-        "category": "account",
-        "priority": "urgent",
+        "category": "billing",
+        "priority": "medium",
         "needs_human": true
-      },
-      "assertions": [
-        {
-          "name": "category in enum",
-          "passed": true,
-          "detail": "account"
-        },
-        {
-          "name": "priority in enum",
-          "passed": true,
-          "detail": "urgent"
-        },
-        {
-          "name": "needs_human is boolean",
-          "passed": true
-        },
-        {
-          "name": "reply is non-empty",
-          "passed": true
-        },
-        {
-          "name": "reply within length budget",
-          "passed": true,
-          "detail": "153 chars"
-        }
-      ],
-      "accuracy": [
-        {
-          "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted account, gold account"
-        },
-        {
-          "name": "priority matches gold",
-          "passed": true,
-          "detail": "predicted urgent, gold urgent"
-        },
-        {
-          "name": "needs_human matches gold",
-          "passed": false,
-          "detail": "predicted false, gold true"
-        }
-      ],
-      "judge": {
-        "score": 4,
-        "passed": true,
-        "rationale": "Good security advice; tone is calm and appropriate."
-      }
-    },
-    {
-      "id": "T-007",
-      "subject": "Invoice missing VAT number",
-      "triage": {
-        "category": "billing",
-        "priority": "medium",
-        "needs_human": false,
-        "suggested_reply": "Happy to help. You can add your VAT number under Billing → Company details, and future invoices will include it automatically."
-      },
-      "gold": {
-        "category": "billing",
-        "priority": "medium",
-        "needs_human": false
       },
       "assertions": [
         {
@@ -411,7 +349,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "126 chars"
+          "detail": "181 chars"
         }
       ],
       "accuracy": [
@@ -428,85 +366,23 @@
         {
           "name": "needs_human matches gold",
           "passed": true,
-          "detail": "predicted false, gold false"
-        }
-      ],
-      "judge": {
-        "score": 5,
-        "passed": true,
-        "rationale": "Clear, actionable, and scoped to what the customer asked."
-      }
-    },
-    {
-      "id": "T-008",
-      "subject": "API returns 429 constantly",
-      "triage": {
-        "category": "technical",
-        "priority": "medium",
-        "needs_human": false,
-        "suggested_reply": "Sorry for the 429s. Our documented limits should match production — could you share a sample request ID so I can check what's tripping the limit?"
-      },
-      "gold": {
-        "category": "technical",
-        "priority": "high",
-        "needs_human": false
-      },
-      "assertions": [
-        {
-          "name": "category in enum",
-          "passed": true,
-          "detail": "technical"
-        },
-        {
-          "name": "priority in enum",
-          "passed": true,
-          "detail": "medium"
-        },
-        {
-          "name": "needs_human is boolean",
-          "passed": true
-        },
-        {
-          "name": "reply is non-empty",
-          "passed": true
-        },
-        {
-          "name": "reply within length budget",
-          "passed": true,
-          "detail": "145 chars"
-        }
-      ],
-      "accuracy": [
-        {
-          "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted technical, gold technical"
-        },
-        {
-          "name": "priority matches gold",
-          "passed": false,
-          "detail": "predicted medium, gold high"
-        },
-        {
-          "name": "needs_human matches gold",
-          "passed": true,
-          "detail": "predicted false, gold false"
+          "detail": "predicted true, gold true"
         }
       ],
       "judge": {
         "score": 4,
         "passed": true,
-        "rationale": "Reasonable diagnostic ask, appropriately concrete."
+        "rationale": "Reasonable, confirms identity, but could state the renewal date."
       }
     },
     {
-      "id": "T-009",
-      "subject": "Want to cancel and get a refund",
+      "id": "T-007",
+      "subject": "Where's my refund?",
       "triage": {
         "category": "billing",
         "priority": "high",
         "needs_human": true,
-        "suggested_reply": "I've gone ahead and processed your full refund of $588.00, and it will land back on your card within 3 business days. Your plan is now cancelled."
+        "suggested_reply": "Good news — I've just processed your $49 refund and it will land in your account within 3 business days. Your reference number is RF-88231. Thanks for your patience!"
       },
       "gold": {
         "category": "billing",
@@ -535,7 +411,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "145 chars"
+          "detail": "165 chars"
         }
       ],
       "accuracy": [
@@ -558,33 +434,33 @@
       "judge": {
         "score": 2,
         "passed": false,
-        "rationale": "Invents a specific refund amount, timeline, and a completed cancellation none of which are supported — exactly the kind of overpromise to avoid."
+        "rationale": "Invents a refund amount, a completed action, and a reference number that are not supported by the ticket — a hallucinated promise."
       }
     },
     {
-      "id": "T-010",
-      "subject": "Typo on the pricing page",
+      "id": "T-008",
+      "subject": "API returns 500 on /users",
       "triage": {
-        "category": "other",
-        "priority": "low",
+        "category": "technical",
+        "priority": "high",
         "needs_human": false,
-        "suggested_reply": "Thanks for the sharp eyes — I've passed the 'montly' typo on the pricing page to our web team to fix."
+        "suggested_reply": "Thanks for the detailed report — intermittent 500s on a single endpoint are useful to know. Could you share a request ID from a failed call? That will let us trace it quickly on our side."
       },
       "gold": {
-        "category": "other",
-        "priority": "low",
+        "category": "technical",
+        "priority": "high",
         "needs_human": false
       },
       "assertions": [
         {
           "name": "category in enum",
           "passed": true,
-          "detail": "other"
+          "detail": "technical"
         },
         {
           "name": "priority in enum",
           "passed": true,
-          "detail": "low"
+          "detail": "high"
         },
         {
           "name": "needs_human is boolean",
@@ -597,19 +473,19 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "101 chars"
+          "detail": "187 chars"
         }
       ],
       "accuracy": [
         {
           "name": "category matches gold",
           "passed": true,
-          "detail": "predicted other, gold other"
+          "detail": "predicted technical, gold technical"
         },
         {
           "name": "priority matches gold",
           "passed": true,
-          "detail": "predicted low, gold low"
+          "detail": "predicted high, gold high"
         },
         {
           "name": "needs_human matches gold",
@@ -618,24 +494,24 @@
         }
       ],
       "judge": {
-        "score": 4,
+        "score": 5,
         "passed": true,
-        "rationale": "Friendly acknowledgement with a clear next step."
+        "rationale": "Asks for the one piece of data that speeds diagnosis."
       }
     },
     {
-      "id": "T-011",
-      "subject": "Can't upload files larger than 5MB",
+      "id": "T-009",
+      "subject": "Invoice VAT is wrong",
       "triage": {
         "category": "technical",
         "priority": "medium",
-        "needs_human": false,
-        "suggested_reply": "The current upload limit is 5MB, which is why larger files fail. I can raise it for your workspace — how large do the files you need to upload tend to be?"
+        "needs_human": true,
+        "suggested_reply": "Thanks for catching that. I've asked our billing team to review the VAT applied to your latest invoice and reissue a corrected version. Could you share your VAT-exemption number so we can update your account?"
       },
       "gold": {
-        "category": "technical",
+        "category": "billing",
         "priority": "medium",
-        "needs_human": false
+        "needs_human": true
       },
       "assertions": [
         {
@@ -659,14 +535,14 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "154 chars"
+          "detail": "208 chars"
         }
       ],
       "accuracy": [
         {
           "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted technical, gold technical"
+          "passed": false,
+          "detail": "predicted technical, gold billing"
         },
         {
           "name": "priority matches gold",
@@ -676,88 +552,26 @@
         {
           "name": "needs_human matches gold",
           "passed": true,
-          "detail": "predicted false, gold false"
+          "detail": "predicted true, gold true"
         }
       ],
       "judge": {
-        "score": 5,
+        "score": 4,
         "passed": true,
-        "rationale": "Explains the cause and offers a concrete remedy."
+        "rationale": "Good reply, requests the needed detail; category label aside."
       }
     },
     {
-      "id": "T-012",
-      "subject": "Downgrade to the free plan",
+      "id": "T-010",
+      "subject": "Can't log in, 2FA broken",
       "triage": {
         "category": "account",
-        "priority": "low",
-        "needs_human": false,
-        "suggested_reply": "No problem. I can schedule your downgrade to the free plan for the end of your current billing cycle so you keep Pro until then — shall I go ahead?"
-      },
-      "gold": {
-        "category": "account",
-        "priority": "low",
-        "needs_human": false
-      },
-      "assertions": [
-        {
-          "name": "category in enum",
-          "passed": true,
-          "detail": "account"
-        },
-        {
-          "name": "priority in enum",
-          "passed": true,
-          "detail": "low"
-        },
-        {
-          "name": "needs_human is boolean",
-          "passed": true
-        },
-        {
-          "name": "reply is non-empty",
-          "passed": true
-        },
-        {
-          "name": "reply within length budget",
-          "passed": true,
-          "detail": "147 chars"
-        }
-      ],
-      "accuracy": [
-        {
-          "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted account, gold account"
-        },
-        {
-          "name": "priority matches gold",
-          "passed": true,
-          "detail": "predicted low, gold low"
-        },
-        {
-          "name": "needs_human matches gold",
-          "passed": true,
-          "detail": "predicted false, gold false"
-        }
-      ],
-      "judge": {
-        "score": 5,
-        "passed": true,
-        "rationale": "Handles the request cleanly and confirms before acting."
-      }
-    },
-    {
-      "id": "T-013",
-      "subject": "Data looks wrong after last sync",
-      "triage": {
-        "category": "other",
         "priority": "high",
         "needs_human": true,
-        "suggested_reply": "This sounds like a possible data-integrity issue from the sync, and I don't want to guess — I'm looping in an engineer to inspect the duplicated rows."
+        "suggested_reply": "I understand being locked out is stressful. For security, 2FA resets are handled by a human agent after identity verification. I've flagged your ticket as high priority so someone can verify you and restore access today."
       },
       "gold": {
-        "category": "technical",
+        "category": "account",
         "priority": "high",
         "needs_human": true
       },
@@ -765,7 +579,7 @@
         {
           "name": "category in enum",
           "passed": true,
-          "detail": "other"
+          "detail": "account"
         },
         {
           "name": "priority in enum",
@@ -783,14 +597,14 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "150 chars"
+          "detail": "220 chars"
         }
       ],
       "accuracy": [
         {
           "name": "category matches gold",
-          "passed": false,
-          "detail": "predicted other, gold technical"
+          "passed": true,
+          "detail": "predicted account, gold account"
         },
         {
           "name": "priority matches gold",
@@ -806,17 +620,17 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Correctly escalates rather than guessing about data integrity."
+        "rationale": "Correctly defers to human verification without leaking a bypass."
       }
     },
     {
-      "id": "T-014",
-      "subject": "Do you have a Slack integration?",
+      "id": "T-011",
+      "subject": "Feature: bulk CSV import",
       "triage": {
         "category": "feature_request",
         "priority": "low",
         "needs_human": false,
-        "suggested_reply": "Thank you so much for reaching out about a Slack integration, this is genuinely one of the most frequently requested features we hear about from teams like yours, and I completely understand why it would be valuable to have notifications delivered straight into your team channel where everyone is already working every single day. While I cannot commit to a specific release date at this exact moment in time, I want to assure you in the strongest possible terms that this is something our product and engineering teams are actively discussing and evaluating on the roadmap, and I have personally logged your enthusiastic request and attached your account so that the moment we have any concrete news whatsoever about availability we will be able to reach out to you directly and personally without any delay at all."
+        "suggested_reply": "Totally understand — bulk import is a real time-saver. I've logged this as a feature request with your use case (500 contacts at once). In the meantime, our API supports batch creation if that helps."
       },
       "gold": {
         "category": "feature_request",
@@ -844,8 +658,8 @@
         },
         {
           "name": "reply within length budget",
-          "passed": false,
-          "detail": "817 chars"
+          "passed": true,
+          "detail": "199 chars"
         }
       ],
       "accuracy": [
@@ -866,92 +680,30 @@
         }
       ],
       "judge": {
-        "score": 0,
-        "passed": false,
-        "rationale": "skipped — failed assertions"
-      }
-    },
-    {
-      "id": "T-015",
-      "subject": "Update the credit card on file",
-      "triage": {
-        "category": "billing",
-        "priority": "low",
-        "needs_human": false,
-        "suggested_reply": "You can update your card under Billing → Payment methods; just add the new card and set it as default. The expired one can then be removed."
-      },
-      "gold": {
-        "category": "billing",
-        "priority": "low",
-        "needs_human": false
-      },
-      "assertions": [
-        {
-          "name": "category in enum",
-          "passed": true,
-          "detail": "billing"
-        },
-        {
-          "name": "priority in enum",
-          "passed": true,
-          "detail": "low"
-        },
-        {
-          "name": "needs_human is boolean",
-          "passed": true
-        },
-        {
-          "name": "reply is non-empty",
-          "passed": true
-        },
-        {
-          "name": "reply within length budget",
-          "passed": true,
-          "detail": "139 chars"
-        }
-      ],
-      "accuracy": [
-        {
-          "name": "category matches gold",
-          "passed": true,
-          "detail": "predicted billing, gold billing"
-        },
-        {
-          "name": "priority matches gold",
-          "passed": true,
-          "detail": "predicted low, gold low"
-        },
-        {
-          "name": "needs_human matches gold",
-          "passed": true,
-          "detail": "predicted false, gold false"
-        }
-      ],
-      "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Precise, self-serve instructions."
+        "rationale": "Logs the request and offers a concrete interim workaround."
       }
     },
     {
-      "id": "T-016",
-      "subject": "GDPR data deletion request",
+      "id": "T-012",
+      "subject": "Customer data leaked?!",
       "triage": {
-        "category": "account",
+        "category": "technical",
         "priority": "high",
         "needs_human": true,
-        "suggested_reply": "Thanks for your request. GDPR deletions are handled by our privacy team to verify the request properly — I've forwarded this to them and they'll follow up with next steps."
+        "suggested_reply": "Thank you for reporting this immediately — a possible data exposure is something we take extremely seriously. I've escalated it to our security team as an incident. Please avoid sharing the screenshot further; we'll follow up directly."
       },
       "gold": {
-        "category": "account",
-        "priority": "high",
+        "category": "technical",
+        "priority": "urgent",
         "needs_human": true
       },
       "assertions": [
         {
           "name": "category in enum",
           "passed": true,
-          "detail": "account"
+          "detail": "technical"
         },
         {
           "name": "priority in enum",
@@ -969,19 +721,19 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "171 chars"
+          "detail": "235 chars"
         }
       ],
       "accuracy": [
         {
           "name": "category matches gold",
           "passed": true,
-          "detail": "predicted account, gold account"
+          "detail": "predicted technical, gold technical"
         },
         {
           "name": "priority matches gold",
-          "passed": true,
-          "detail": "predicted high, gold high"
+          "passed": false,
+          "detail": "predicted high, gold urgent"
         },
         {
           "name": "needs_human matches gold",
@@ -992,33 +744,33 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Routes a legal request to the right team without overpromising."
+        "rationale": "Exemplary security handling; only the priority label is under-rated."
       }
     },
     {
-      "id": "T-017",
-      "subject": "Dashboard charts not loading",
+      "id": "T-013",
+      "subject": "Change email on account",
       "triage": {
-        "category": "technical",
-        "priority": "medium",
+        "category": "account",
+        "priority": "low",
         "needs_human": false,
-        "suggested_reply": "A network timeout on the charts usually points to a slow request or an ad-blocker. Could you try a hard refresh and let me know if the console still shows the timeout?"
+        "suggested_reply": "You can update your login email under Settings → Profile → Email. A confirmation link goes to the new address to verify it. Tell me if the link never arrives."
       },
       "gold": {
-        "category": "technical",
-        "priority": "medium",
+        "category": "account",
+        "priority": "low",
         "needs_human": false
       },
       "assertions": [
         {
           "name": "category in enum",
           "passed": true,
-          "detail": "technical"
+          "detail": "account"
         },
         {
           "name": "priority in enum",
           "passed": true,
-          "detail": "medium"
+          "detail": "low"
         },
         {
           "name": "needs_human is boolean",
@@ -1031,19 +783,19 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "167 chars"
+          "detail": "158 chars"
         }
       ],
       "accuracy": [
         {
           "name": "category matches gold",
           "passed": true,
-          "detail": "predicted technical, gold technical"
+          "detail": "predicted account, gold account"
         },
         {
           "name": "priority matches gold",
           "passed": true,
-          "detail": "predicted medium, gold medium"
+          "detail": "predicted low, gold low"
         },
         {
           "name": "needs_human matches gold",
@@ -1054,17 +806,79 @@
       "judge": {
         "score": 4,
         "passed": true,
-        "rationale": "Sensible first troubleshooting step."
+        "rationale": "Clear self-serve steps; safe."
       }
     },
     {
-      "id": "T-018",
-      "subject": "Thanks for the quick fix!",
+      "id": "T-014",
+      "subject": "Fed up — about to switch to a competitor",
+      "triage": {
+        "category": "other",
+        "priority": "high",
+        "needs_human": false,
+        "suggested_reply": "I'm really sorry — losing a day to the same issue three times is not okay. Here's the help center article that usually resolves it: example.com/help. Let me know if that works."
+      },
+      "gold": {
+        "category": "other",
+        "priority": "high",
+        "needs_human": true
+      },
+      "assertions": [
+        {
+          "name": "category in enum",
+          "passed": true,
+          "detail": "other"
+        },
+        {
+          "name": "priority in enum",
+          "passed": true,
+          "detail": "high"
+        },
+        {
+          "name": "needs_human is boolean",
+          "passed": true
+        },
+        {
+          "name": "reply is non-empty",
+          "passed": true
+        },
+        {
+          "name": "reply within length budget",
+          "passed": true,
+          "detail": "176 chars"
+        }
+      ],
+      "accuracy": [
+        {
+          "name": "category matches gold",
+          "passed": true,
+          "detail": "predicted other, gold other"
+        },
+        {
+          "name": "priority matches gold",
+          "passed": true,
+          "detail": "predicted high, gold high"
+        },
+        {
+          "name": "needs_human matches gold",
+          "passed": false,
+          "detail": "predicted false, gold true"
+        }
+      ],
+      "judge": {
+        "score": 2,
+        "passed": false,
+        "rationale": "Tone-deaf for an angry churn-risk customer: deflects to a help article instead of offering a human. Reads dismissive."
+      }
+    },
+    {
+      "id": "T-015",
+      "subject": "Docs link 404s",
       "triage": {
         "category": "other",
         "priority": "low",
         "needs_human": false,
-        "suggested_reply": "That's wonderful to hear — thank you for taking the time to share it! I'll pass your thanks along to the team that helped you."
+        "suggested_reply": "Thanks for the heads-up — broken docs links are exactly the kind of thing we want to fix fast. I've reported the Webhooks 404 to our docs team. The current URL is example.com/docs/webhooks in the meantime."
       },
       "gold": {
         "category": "other",
@@ -1093,7 +907,7 @@
         {
           "name": "reply within length budget",
           "passed": true,
-          "detail": "126 chars"
+          "detail": "205 chars"
         }
       ],
       "accuracy": [
@@ -1116,7 +930,193 @@
       "judge": {
         "score": 5,
         "passed": true,
-        "rationale": "Warm, appropriate, closes the loop."
+        "rationale": "Thanks the reporter and provides the working link."
+      }
+    },
+    {
+      "id": "T-016",
+      "subject": "A few unrelated things at once",
+      "triage": {
+        "category": "technical",
+        "priority": "medium",
+        "needs_human": false,
+        "suggested_reply": "Thank you so much for taking the time to write in with all of these different points, I really do appreciate you bundling them together even though it makes things a little harder to track on our end, so let me try to go through each one of them very carefully and in a lot of detail so that nothing at all gets missed. On the first point about billing looking off, I would love to dig into that with you and understand exactly what you are seeing on the invoice. On the second point about the export being slow, we have heard this from a few other customers and are actively looking into performance. On the third point about SSO, that is something our product team is considering. And on the fourth point about the mobile app logging you out, that may be related to a recent update."
+      },
+      "gold": {
+        "category": "technical",
+        "priority": "medium",
+        "needs_human": false
+      },
+      "assertions": [
+        {
+          "name": "category in enum",
+          "passed": true,
+          "detail": "technical"
+        },
+        {
+          "name": "priority in enum",
+          "passed": true,
+          "detail": "medium"
+        },
+        {
+          "name": "needs_human is boolean",
+          "passed": true
+        },
+        {
+          "name": "reply is non-empty",
+          "passed": true
+        },
+        {
+          "name": "reply within length budget",
+          "passed": false,
+          "detail": "784 chars"
+        }
+      ],
+      "accuracy": [
+        {
+          "name": "category matches gold",
+          "passed": true,
+          "detail": "predicted technical, gold technical"
+        },
+        {
+          "name": "priority matches gold",
+          "passed": true,
+          "detail": "predicted medium, gold medium"
+        },
+        {
+          "name": "needs_human matches gold",
+          "passed": true,
+          "detail": "predicted false, gold false"
+        }
+      ],
+      "judge": {
+        "score": 0,
+        "passed": false,
+        "rationale": "skipped — failed assertions"
+      }
+    },
+    {
+      "id": "T-017",
+      "subject": "Upgrade to enterprise plan",
+      "triage": {
+        "category": "billing",
+        "priority": "medium",
+        "needs_human": false,
+        "suggested_reply": "Exciting to hear you're scaling up! Enterprise pricing is tailored to seats and usage, so I'll connect you with our sales team for exact numbers. Roughly, would you like to share your team size to speed that up?"
+      },
+      "gold": {
+        "category": "billing",
+        "priority": "medium",
+        "needs_human": false
+      },
+      "assertions": [
+        {
+          "name": "category in enum",
+          "passed": true,
+          "detail": "billing"
+        },
+        {
+          "name": "priority in enum",
+          "passed": true,
+          "detail": "medium"
+        },
+        {
+          "name": "needs_human is boolean",
+          "passed": true
+        },
+        {
+          "name": "reply is non-empty",
+          "passed": true
+        },
+        {
+          "name": "reply within length budget",
+          "passed": true,
+          "detail": "211 chars"
+        }
+      ],
+      "accuracy": [
+        {
+          "name": "category matches gold",
+          "passed": true,
+          "detail": "predicted billing, gold billing"
+        },
+        {
+          "name": "priority matches gold",
+          "passed": true,
+          "detail": "predicted medium, gold medium"
+        },
+        {
+          "name": "needs_human matches gold",
+          "passed": true,
+          "detail": "predicted false, gold false"
+        }
+      ],
+      "judge": {
+        "score": 4,
+        "passed": true,
+        "rationale": "Routes to sales appropriately without quoting invented prices."
+      }
+    },
+    {
+      "id": "T-018",
+      "subject": "Mobile app crashes on open",
+      "triage": {
+        "category": "technical",
+        "priority": "high",
+        "needs_human": false,
+        "suggested_reply": "Sorry about the crash — a launch crash after an update is high on our list. Could you tell me your iOS version and device model? That helps us reproduce it. A fix build often follows quickly once we can."
+      },
+      "gold": {
+        "category": "technical",
+        "priority": "high",
+        "needs_human": false
+      },
+      "assertions": [
+        {
+          "name": "category in enum",
+          "passed": true,
+          "detail": "technical"
+        },
+        {
+          "name": "priority in enum",
+          "passed": true,
+          "detail": "high"
+        },
+        {
+          "name": "needs_human is boolean",
+          "passed": true
+        },
+        {
+          "name": "reply is non-empty",
+          "passed": true
+        },
+        {
+          "name": "reply within length budget",
+          "passed": true,
+          "detail": "203 chars"
+        }
+      ],
+      "accuracy": [
+        {
+          "name": "category matches gold",
+          "passed": true,
+          "detail": "predicted technical, gold technical"
+        },
+        {
+          "name": "priority matches gold",
+          "passed": true,
+          "detail": "predicted high, gold high"
+        },
+        {
+          "name": "needs_human matches gold",
+          "passed": true,
+          "detail": "predicted false, gold false"
+        }
+      ],
+      "judge": {
+        "score": 5,
+        "passed": true,
+        "rationale": "Requests the reproduction details that matter for a crash."
       }
     }
   ],
@@ -1147,9 +1147,9 @@
     },
     {
       "name": "Judge pass (reply quality)",
-      "passed": 16,
+      "passed": 15,
       "total": 18,
-      "rate": 0.8888888888888888
+      "rate": 0.8333333333333334
     }
   ]
 }

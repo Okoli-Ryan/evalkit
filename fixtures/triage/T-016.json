@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-016"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: A few unrelated things at once\n\nBody:\nFirst, billing looks off. Second, the export is slow. Third, can you add SSO? Fourth, the mobile app logged me out. Sorry for the wall of text!"
   },
   "response": {
-    "category": "account",
-    "priority": "high",
-    "needs_human": true,
-    "suggested_reply": "Thanks for your request. GDPR deletions are handled by our privacy team to verify the request properly — I've forwarded this to them and they'll follow up with next steps."
+    "category": "technical",
+    "priority": "medium",
+    "needs_human": false,
+    "suggested_reply": "Thank you so much for taking the time to write in with all of these different points, I really do appreciate you bundling them together even though it makes things a little harder to track on our end, so let me try to go through each one of them very carefully and in a lot of detail so that nothing at all gets missed. On the first point about billing looking off, I would love to dig into that with you and understand exactly what you are seeing on the invoice. On the second point about the export being slow, we have heard this from a few other customers and are actively looking into performance. On the third point about SSO, that is something our product team is considering. And on the fourth point about the mobile app logging you out, that may be related to a recent update."
   },
   "usage": {
-    "input_tokens": 235,
-    "output_tokens": 105
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

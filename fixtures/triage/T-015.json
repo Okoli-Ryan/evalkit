@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-015"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Docs link 404s\n\nBody:\nThe \"Webhooks\" link in your documentation footer returns a 404."
   },
   "response": {
-    "category": "billing",
+    "category": "other",
     "priority": "low",
     "needs_human": false,
-    "suggested_reply": "You can update your card under Billing → Payment methods; just add the new card and set it as default. The expired one can then be removed."
+    "suggested_reply": "Thanks for the heads-up — broken docs links are exactly the kind of thing we want to fix fast. I've reported the Webhooks 404 to our docs team. The current URL is example.com/docs/webhooks in the meantime."
   },
   "usage": {
-    "input_tokens": 234,
-    "output_tokens": 104
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

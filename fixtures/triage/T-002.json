@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-002"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: How do I export my data?\n\nBody:\nIs there a way to export all my records to CSV? I want a backup."
   },
   "response": {
     "category": "technical",
     "priority": "low",
     "needs_human": false,
-    "suggested_reply": "You can export your records from Settings → Data → Export, which downloads everything as a CSV. Let me know if you hit any trouble."
+    "suggested_reply": "You can export everything from Settings → Data → Export, which produces a CSV of all your records. Let me know if the button is missing and I can enable it for your plan."
   },
   "usage": {
-    "input_tokens": 221,
-    "output_tokens": 91
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

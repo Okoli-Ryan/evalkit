@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-008"
+    "system": "(judge rubric)",
+    "user": "score reply for T-008"
   },
   "response": {
-    "score": 4,
-    "rationale": "Reasonable diagnostic ask, appropriately concrete."
+    "score": 5,
+    "rationale": "Asks for the one piece of data that speeds diagnosis."
   },
   "usage": {
-    "input_tokens": 187,
-    "output_tokens": 47
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

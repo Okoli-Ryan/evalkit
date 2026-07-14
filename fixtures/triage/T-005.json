@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-005"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Add dark mode please\n\nBody:\nWould love a dark theme for late-night work. Any plans?"
   },
   "response": {
-    "category": "account",
-    "priority": "medium",
+    "category": "feature_request",
+    "priority": "low",
     "needs_human": false,
-    "suggested_reply": "Sorry the reset email isn't arriving. Please check spam, and if it's still missing I can trigger another reset — what email is on the account?"
+    "suggested_reply": "Great suggestion — dark mode is a popular request. I've added your vote to the feature and will note it for the product team. I can't promise a date, but it's on the radar."
   },
   "usage": {
-    "input_tokens": 224,
-    "output_tokens": 94
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

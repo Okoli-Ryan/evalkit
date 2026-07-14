@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-011"
+    "system": "(judge rubric)",
+    "user": "score reply for T-011"
   },
   "response": {
     "score": 5,
-    "rationale": "Explains the cause and offers a concrete remedy."
+    "rationale": "Logs the request and offers a concrete interim workaround."
   },
   "usage": {
-    "input_tokens": 190,
-    "output_tokens": 50
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

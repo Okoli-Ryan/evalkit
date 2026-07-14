@@ -1,0 +1,2 @@
+# Normalize line endings to LF so fixtures/results stay byte-stable across OSes.
+* text=auto eol=lf

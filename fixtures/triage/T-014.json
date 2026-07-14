@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-014"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Fed up — about to switch to a competitor\n\nBody:\nThis is the third time this has broken. I've wasted a whole day. Honestly I'm ready to move my whole team to a competitor unless someone actually helps."
   },
   "response": {
-    "category": "feature_request",
-    "priority": "low",
+    "category": "other",
+    "priority": "high",
     "needs_human": false,
-    "suggested_reply": "Thank you so much for reaching out about a Slack integration, this is genuinely one of the most frequently requested features we hear about from teams like yours, and I completely understand why it would be valuable to have notifications delivered straight into your team channel where everyone is already working every single day. While I cannot commit to a specific release date at this exact moment in time, I want to assure you in the strongest possible terms that this is something our product and engineering teams are actively discussing and evaluating on the roadmap, and I have personally logged your enthusiastic request and attached your account so that the moment we have any concrete news whatsoever about availability we will be able to reach out to you directly and personally without any delay at all."
+    "suggested_reply": "I'm really sorry — losing a day to the same issue three times is not okay. Here's the help center article that usually resolves it: example.com/help. Let me know if that works."
   },
   "usage": {
-    "input_tokens": 233,
-    "output_tokens": 103
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

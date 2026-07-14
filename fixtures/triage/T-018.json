@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-018"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Mobile app crashes on open\n\nBody:\nThe iOS app crashes instantly on launch after the latest update. Reinstalling did not help."
   },
   "response": {
-    "category": "other",
-    "priority": "low",
+    "category": "technical",
+    "priority": "high",
     "needs_human": false,
-    "suggested_reply": "That's wonderful to hear — thank you for taking the time to share it! I'll pass your thanks along to the team that helped you."
+    "suggested_reply": "Sorry about the crash — a launch crash after an update is high on our list. Could you tell me your iOS version and device model? That helps us reproduce it. A fix build often follows quickly once we can."
   },
   "usage": {
-    "input_tokens": 237,
-    "output_tokens": 107
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

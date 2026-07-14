@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-003"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Reset my password\n\nBody:\nI can't remember my password and the reset email never arrives."
   },
   "response": {
-    "category": "technical",
-    "priority": "urgent",
-    "needs_human": true,
-    "suggested_reply": "I'm escalating this as an urgent outage right now. Our engineering team is investigating the 503 errors and I'll keep you updated with progress."
+    "category": "account",
+    "priority": "low",
+    "needs_human": false,
+    "suggested_reply": "Sorry for the hassle. Please check your spam folder for the reset email from no-reply@example.com. If it's still missing after 10 minutes, reply here and I'll trigger a manual reset link."
   },
   "usage": {
-    "input_tokens": 222,
-    "output_tokens": 92
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

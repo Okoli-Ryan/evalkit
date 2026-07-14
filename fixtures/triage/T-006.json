@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-006"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Cancel my subscription\n\nBody:\nI'd like to cancel before my next renewal. How do I do that?"
   },
   "response": {
-    "category": "account",
-    "priority": "urgent",
-    "needs_human": false,
-    "suggested_reply": "That login alert is worth taking seriously. I'd recommend changing your password and enabling two-factor authentication right away to secure the account."
+    "category": "billing",
+    "priority": "medium",
+    "needs_human": true,
+    "suggested_reply": "I can help with that. Before I pass this to our billing team to process the cancellation, could you confirm the email on the account? You won't be charged again once it's cancelled."
   },
   "usage": {
-    "input_tokens": 225,
-    "output_tokens": 95
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

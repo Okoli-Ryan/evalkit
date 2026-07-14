@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-001"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Double charged for October\n\nBody:\nI just noticed two identical charges of $49 on my card for October. I only have one subscription. Please refund the extra one."
   },
   "response": {
     "category": "billing",
     "priority": "high",
     "needs_human": true,
-    "suggested_reply": "I'm sorry about the duplicate charge. I've flagged your account for a refund of the extra $49 and a billing specialist will confirm the reversal shortly."
+    "suggested_reply": "Thanks for flagging this — a duplicate charge is never fun. I've escalated your account to our billing team to investigate the second $49 charge and arrange a refund. You'll hear back within one business day."
   },
   "usage": {
-    "input_tokens": 220,
-    "output_tokens": 90
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

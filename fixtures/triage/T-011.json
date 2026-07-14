@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-011"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Feature: bulk CSV import\n\nBody:\nIt would save me hours if I could import a CSV of 500 contacts at once instead of one by one."
   },
   "response": {
-    "category": "technical",
-    "priority": "medium",
+    "category": "feature_request",
+    "priority": "low",
     "needs_human": false,
-    "suggested_reply": "The current upload limit is 5MB, which is why larger files fail. I can raise it for your workspace — how large do the files you need to upload tend to be?"
+    "suggested_reply": "Totally understand — bulk import is a real time-saver. I've logged this as a feature request with your use case (500 contacts at once). In the meantime, our API supports batch creation if that helps."
   },
   "usage": {
-    "input_tokens": 230,
-    "output_tokens": 100
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

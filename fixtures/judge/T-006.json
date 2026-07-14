@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-006"
+    "system": "(judge rubric)",
+    "user": "score reply for T-006"
   },
   "response": {
     "score": 4,
-    "rationale": "Good security advice; tone is calm and appropriate."
+    "rationale": "Reasonable, confirms identity, but could state the renewal date."
   },
   "usage": {
-    "input_tokens": 185,
-    "output_tokens": 45
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

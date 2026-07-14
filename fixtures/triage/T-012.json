@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-012"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Customer data leaked?!\n\nBody:\nA customer emailed me a screenshot showing another customer’s records inside their account. This looks like a data leak."
   },
   "response": {
-    "category": "account",
-    "priority": "low",
-    "needs_human": false,
-    "suggested_reply": "No problem. I can schedule your downgrade to the free plan for the end of your current billing cycle so you keep Pro until then — shall I go ahead?"
+    "category": "technical",
+    "priority": "high",
+    "needs_human": true,
+    "suggested_reply": "Thank you for reporting this immediately — a possible data exposure is something we take extremely seriously. I've escalated it to our security team as an incident. Please avoid sharing the screenshot further; we'll follow up directly."
   },
   "usage": {
-    "input_tokens": 231,
-    "output_tokens": 101
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

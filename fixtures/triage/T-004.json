@@ -1,17 +1,17 @@
 {
   "request": {
     "model": "claude-haiku-4-5",
-    "system": "triage",
-    "user": "T-004"
+    "system": "You are a support-ticket triage assistant for a SaaS product.\nRead the customer's ticket and return a structured triage decision.\n\n- category: the single best fit from billing, technical, account, feature_request, other.\n- priority: low, medium, high, urgent. \"urgent\" is reserved for outages, data loss,\n  or security issues. Billing disputes are usually \"high\". General questions are \"low\".\n- needs_human: true when the ticket needs a human agent (refunds, legal, angry\n  customers, anything you cannot resolve with a templated reply).\n- suggested_reply: a concise, friendly first response to the customer. Never invent\n  facts, account details, or promises you cannot keep.",
+    "user": "Subject: Site is completely down\n\nBody:\nThe whole dashboard returns a blank page for everyone on my team since 10 minutes ago. Nothing loads."
   },
   "response": {
-    "category": "feature_request",
-    "priority": "low",
-    "needs_human": false,
-    "suggested_reply": "Thanks for the kind words! A dark theme is a popular request — I've logged your vote and shared it with our product team."
+    "category": "technical",
+    "priority": "urgent",
+    "needs_human": true,
+    "suggested_reply": "That sounds like an outage and I'm treating it as urgent. I've alerted our on-call engineers and created an incident. I'll post updates here as we learn more — thank you for your patience."
   },
   "usage": {
-    "input_tokens": 223,
-    "output_tokens": 93
+    "input_tokens": 320,
+    "output_tokens": 240
   }
 }

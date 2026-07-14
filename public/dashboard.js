@@ -176,6 +176,10 @@ async function main() {
   renderMeta(run);
   renderTiles(run, baseline);
   renderRows(run);
+
+  // Deep-link support: /?case=T-009 opens that case's drill-down on load.
+  const wanted = new URLSearchParams(location.search).get('case');
+  if (wanted) openDrawer(wanted);
 }
 
 main();

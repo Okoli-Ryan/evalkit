@@ -1,15 +1,15 @@
 {
   "request": {
     "model": "claude-sonnet-5",
-    "system": "judge",
-    "user": "T-017"
+    "system": "(judge rubric)",
+    "user": "score reply for T-017"
   },
   "response": {
     "score": 4,
-    "rationale": "Sensible first troubleshooting step."
+    "rationale": "Routes to sales appropriately without quoting invented prices."
   },
   "usage": {
-    "input_tokens": 196,
-    "output_tokens": 41
+    "input_tokens": 320,
+    "output_tokens": 60
   }
 }

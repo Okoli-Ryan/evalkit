@@ -34,10 +34,17 @@ npm run report    # serve the dashboard at http://localhost:5173
 `npm run eval` prints a summary, writes `results/latest.json`, and exits
 non-zero if any case has a hard failure — so you can gate a build on it.
 
-The bundled dataset ships with five **intentional defects** (a misrouted
-security ticket, an under-triaged priority, a misclassified category, a
-hallucinated reply, and an over-long reply) so you can see the harness catch
-real failures instead of a wall of green.
+The bundled fixtures include five **intentional defects** so you see the harness
+catch real failures instead of a wall of green — one per failure mode:
+
+- an under-triaged security incident (`urgent` graded as `high`)
+- a misclassified category (`billing` graded as `technical`)
+- a missed hand-off to a human on an angry, churn-risk ticket
+- a hallucinated reply inventing a refund amount and reference number
+- an over-long reply that blows the length budget
+
+They spread across all three layers: the over-long reply trips an assertion,
+three trip golden-dataset accuracy, and two are caught only by the judge.
 
 ## Modes: replay vs record
 
