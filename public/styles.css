@@ -256,6 +256,12 @@ table.cases tr.has-fail td:first-child {
   justify-content: flex-end;
 }
 
+/* The class selector outranks the UA `[hidden] { display: none }` rule,
+   so the overlay needs an explicit hidden state. */
+.drawer[hidden] {
+  display: none;
+}
+
 .drawer-body {
   width: min(560px, 92vw);
   height: 100%;
